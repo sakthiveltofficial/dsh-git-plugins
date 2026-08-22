@@ -1,0 +1,88 @@
+# Wire the git capability into an agent preset (agent.cordis.yml).
+#
+# The git SERVICES are preset-scoped — nothing host-side reads them — so every
+# provider AND the tool consumer must sit inside ONE `cordis:group` carrying an
+# `isolate` realm, exactly like the shipped `delegation` group isolates
+# `workflowEngine`. `shell`, `web`, `credentials`, `storageDomain`, and `tools`
+# are host services consumed from here; only `gitLocal`/`gitPlatform`/
+# `gitMemory` are privatized to the group.
+#
+# Secrets: `tokenRef`/`patRef`/`appPasswordRef` are env-var REFERENCES resolved
+# per operation through ctx.credentials — never literal tokens.
+#
+# Memory: `gitMemory` persists into the host `storageDomain` table `git_memory`,
+# which is keyed by NAME, so every session mounting this preset shares the same
+# durable memory even though each gets its own in-realm service instance.
+
+- id: git
+  name: cordis:group
+  group: true
+  isolate:
+    gitLocal: true
+    gitPlatform: true
+    gitMemory: true
+  config:
+    # ── Phase 1: local git ────────────────────────────────────────────────────
+    - id: git-local
+      name: '@dsh-git/local'
+      config:
+        # Fallback working directory when a request omits one.
+        cwd: '~/.dsh/workspaces'
+        timeoutMs: 120000
+
+    # ── Phase 2: the registry that owns every hosted-platform dispatch ────────
+    - id: git-platform
+      name: '@dsh-git/platform'
+      config:
+        # Used when neither an explicit platform nor a detectable remote URL is given.
+        defaultProvider: github
+        maxRetries: 3
+        backoffMs: 1000
+        cacheTtlMs: 30000
+
+    # ── Phase 2/3: platform adapters ─────────────────────────────────────────
+    - id: git-github
+      name: '@dsh-git/github'
+      config:
+        tokenRef: GITHUB_TOKEN
+
+    - id: git-gitlab
+      name: '@dsh-git/gitlab'
+      config:
+        tokenRef: GITLAB_TOKEN
+        baseUrl: 'https://gitlab.com'
+
+    - id: git-bitbucket
+      name: '@dsh-git/bitbucket'
+      config:
+        # Bitbucket Cloud uses HTTP Basic (username + app password).
+        username: ''
+        appPasswordRef: BITBUCKET_APP_PASSWORD
+
+    - id: git-azuredevops
+      name: '@dsh-git/azuredevops'
+      config:
+        patRef: AZURE_DEVOPS_PAT
+
+    - id: git-gitea
+      name: '@dsh-git/gitea'
+      config:
+        tokenRef: GITEA_TOKEN
+        baseUrl: 'https://gitea.example.com' # REQUIRED: your self-hosted Gitea instance
+
+    # ── Self-evolving memory ─────────────────────────────────────────────────
+    - id: git-memory
+      name: '@dsh-git/memory'
+      config:
+        enabled: true
+        maxEntries: 500
+        digestLimit: 16
+
+    - id: tool-git-memory
+      name: '@dsh-git/tool-git-memory'
+
+    # ── The tool layer (the only thing the model sees) ───────────────────────
+    - id: tool-git
+      name: '@dsh-git/tool-git'
+      config:
+        confirmDestructive: true
