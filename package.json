@@ -13,5 +13,23 @@
   },
   "devDependencies": {
     "typescript": "^5.5.4"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "dependencies": {
+    "@dsh-git/azuredevops": "0.1.0",
+    "@dsh-git/bitbucket": "0.1.0",
+    "@dsh-git/core": "0.1.0",
+    "@dsh-git/gitea": "0.1.0",
+    "@dsh-git/github": "0.1.0",
+    "@dsh-git/gitlab": "0.1.0",
+    "@dsh-git/local": "0.1.0",
+    "@dsh-git/memory": "0.1.0",
+    "@dsh-git/platform": "0.1.0",
+    "@dsh-git/tool-git": "0.1.0",
+    "@dsh-git/tool-git-memory": "0.1.0"
   }
 }

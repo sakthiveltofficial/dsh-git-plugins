@@ -1,0 +1,69 @@
+# @dsh-git/bundle — profile patch.
+#
+# Inserts the full git capability into a DSH profile's composition (host rows:
+# services register once process-wide, tools register into the host `tools`
+# registry and are visible to every agent — exactly how `dsh-find-plugin`
+# ships its tool).
+#
+# Secrets are env-var REFERENCES resolved per operation through ctx.credentials
+# — never literal tokens. Adapters with an unset tokenRef fall back to
+# anonymous access (public repos work; writes fail loud with GIT_AUTH_FAILED).
+
+- insert:
+    # ── local git ────────────────────────────────────────────────────────────
+    - id: git-local
+      name: '@dsh-git/local'
+      config:
+        cwd: '~/.dsh/workspaces'
+        timeoutMs: 120000
+
+    # ── hosted-platform registry + adapters ──────────────────────────────────
+    - id: git-platform
+      name: '@dsh-git/platform'
+      config:
+        defaultProvider: github
+        maxRetries: 3
+        backoffMs: 1000
+        cacheTtlMs: 30000
+
+    - id: git-github
+      name: '@dsh-git/github'
+      config:
+        tokenRef: GITHUB_TOKEN
+
+    - id: git-gitlab
+      name: '@dsh-git/gitlab'
+      config:
+        tokenRef: GITLAB_TOKEN
+        baseUrl: 'https://gitlab.com'
+
+    - id: git-bitbucket
+      name: '@dsh-git/bitbucket'
+      config:
+        # Bitbucket Cloud uses HTTP Basic (username + app password).
+        username: ''
+        appPasswordRef: BITBUCKET_APP_PASSWORD
+
+    - id: git-azuredevops
+      name: '@dsh-git/azuredevops'
+      config:
+        patRef: AZURE_DEVOPS_PAT
+
+    - id: git-gitea
+      name: '@dsh-git/gitea'
+      config:
+        tokenRef: GITEA_TOKEN
+        baseUrl: 'https://gitea.example.com' # REQUIRED: your self-hosted Gitea instance
+
+    # ── self-evolving memory ─────────────────────────────────────────────────
+    - id: git-memory
+      name: '@dsh-git/memory'
+
+    - id: tool-git-memory
+      name: '@dsh-git/tool-git-memory'
+
+    # ── model-facing tools ───────────────────────────────────────────────────
+    - id: tool-git
+      name: '@dsh-git/tool-git'
+      config:
+        confirmDestructive: true
