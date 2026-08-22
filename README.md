@@ -53,9 +53,18 @@ Restart the profile (or the DSH process). The bundle's `cordis.patch.yml` insert
 ### Option B — from this GitHub repository
 
 ```sh
-# installs the repo root as a single package; the bundle wires everything
+# the repo ROOT is itself a bundle (dsh.bundle manifest + cordis.patch.yml)
+# and pulls every @dsh-git/* package from npm — no build approval needed
 dsh plugin --profile web add github:sakthiveltofficial/dsh-git-plugins
 ```
+
+> **Use exactly ONE install path.** Both Option A and Option B insert the same
+> git rows — installing both would double-register them. If you already have
+> `@dsh-git/bundle` installed and want the GitHub path instead (or vice versa),
+> remove the other first:
+> ```sh
+> dsh plugin --profile web remove @dsh-git/bundle
+> ```
 
 ### Option C — opt-in per agent preset
 

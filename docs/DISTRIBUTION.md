@@ -61,14 +61,23 @@ plane" shape), copy `composition/git.cordis.yml` into that preset's
 an `isolate` realm per session; memory still persists cross-session through the
 shared `git_memory` storage domain.
 
-## 4. If you cannot publish to npm
+## 4. No npm needed — install straight from GitHub
 
-`dsh plugin add` accepts pnpm sources too, but a git URL installs one package
-at the repo root — not the ten packages in this monorepo. Options:
-- install the monorepo's packages via a private registry / local tarballs
-  (`pnpm add ./packages/git/core` …), or
-- publish only the five packages you need (e.g. `core`, `local`, `tool-git` for
-  Phase 1 local git only) and add the rest later.
+The repo ROOT is itself a bundle: `package.json` declares `dsh.bundle.patch`
+(`cordis.patch.yml`) and depends on every `@dsh-git/*` package by real npm
+version, so a git install pulls the whole suite without any build approval
+(the root has no `prepare` script):
+
+```sh
+dsh plugin --profile web add github:sakthiveltofficial/dsh-git-plugins
+```
+
+Use exactly one install path — installing both the npm bundle and the GitHub
+root would double-register the same rows. To switch, remove the other first
+(`dsh plugin --profile web remove @dsh-git/bundle`).
+
+For private hosting or air-gapped installs: `pnpm add ./packages/git/core` …
+works per package from a local checkout.
 
 ## Versions
 
