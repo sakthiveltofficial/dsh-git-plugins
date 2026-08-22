@@ -1,0 +1,48 @@
+{
+  "name": "@dsh-git/bundle",
+  "version": "0.1.0",
+  "description": "Profile bundle for the dsh-git plugin suite: one `dsh plugin --profile <name> add @dsh-git/bundle` installs and wires the full git capability (local git, all hosted platforms, self-evolving memory, and the model-facing tools) into a DSH profile.",
+  "type": "module",
+  "exports": {
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "cordis.patch.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "build": "echo '@dsh-git/bundle: config-only, nothing to build'"
+  },
+  "dependencies": {
+    "@dsh-git/azuredevops": "workspace:*",
+    "@dsh-git/bitbucket": "workspace:*",
+    "@dsh-git/core": "workspace:*",
+    "@dsh-git/gitea": "workspace:*",
+    "@dsh-git/github": "workspace:*",
+    "@dsh-git/gitlab": "workspace:*",
+    "@dsh-git/local": "workspace:*",
+    "@dsh-git/memory": "workspace:*",
+    "@dsh-git/platform": "workspace:*",
+    "@dsh-git/tool-git": "workspace:*",
+    "@dsh-git/tool-git-memory": "workspace:*"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "dsh-plugin",
+    "git",
+    "plugin-bundle",
+    "source-control",
+    "install"
+  ]
+}
