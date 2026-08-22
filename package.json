@@ -1,0 +1,17 @@
+{
+  "name": "dsh-git-plugins",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Git / source-control plugins for DeepSeek Harness: a local-git provider, a hosted-platform registry (GitHub/GitLab/Bitbucket/Azure DevOps/Gitea), and grouped model-facing tools.",
+  "scripts": {
+    "build": "pnpm -r run build",
+    "typecheck": "pnpm -r run typecheck",
+    "clean": "pnpm -r exec rm -rf lib",
+    "smoke": "node scripts/smoke-local.mjs",
+    "smoke:all": "node scripts/smoke-local.mjs && node scripts/smoke-platform.mjs && node scripts/smoke-adapters.mjs && node scripts/smoke-memory.mjs"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}
