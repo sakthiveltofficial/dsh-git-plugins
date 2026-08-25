@@ -1,6 +1,6 @@
 {
   "name": "dsh-git-plugins",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "type": "module",
   "description": "Git / source-control plugins for DeepSeek Harness: a local-git provider, a hosted-platform registry (GitHub/GitLab/Bitbucket/Azure DevOps/Gitea), and grouped model-facing tools.",
@@ -20,16 +20,16 @@
     }
   },
   "dependencies": {
-    "@dsh-git/azuredevops": "^0.1.1",
-    "@dsh-git/bitbucket": "^0.1.1",
-    "@dsh-git/core": "^0.1.1",
-    "@dsh-git/gitea": "^0.1.1",
-    "@dsh-git/github": "^0.1.1",
-    "@dsh-git/gitlab": "^0.1.1",
-    "@dsh-git/local": "^0.1.1",
-    "@dsh-git/memory": "^0.1.1",
-    "@dsh-git/platform": "^0.1.1",
-    "@dsh-git/tool-git": "^0.1.1",
-    "@dsh-git/tool-git-memory": "^0.1.1"
+    "@dsh-git/azuredevops": "^0.1.2",
+    "@dsh-git/bitbucket": "^0.1.2",
+    "@dsh-git/core": "^0.1.2",
+    "@dsh-git/gitea": "^0.1.2",
+    "@dsh-git/github": "^0.1.2",
+    "@dsh-git/gitlab": "^0.1.2",
+    "@dsh-git/local": "^0.1.2",
+    "@dsh-git/memory": "^0.1.2",
+    "@dsh-git/platform": "^0.1.2",
+    "@dsh-git/tool-git": "^0.1.2",
+    "@dsh-git/tool-git-memory": "^0.1.2"
   }
 }

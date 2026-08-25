@@ -1,6 +1,6 @@
 {
   "name": "@dsh-git/bundle",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Profile bundle for the dsh-git plugin suite: one `dsh plugin --profile <name> add @dsh-git/bundle` installs and wires the full git capability (local git, all hosted platforms, self-evolving memory, and the model-facing tools) into a DSH profile.",
   "type": "module",
   "exports": {
@@ -19,17 +19,17 @@
     "build": "echo '@dsh-git/bundle: config-only, nothing to build'"
   },
   "dependencies": {
-    "@dsh-git/azuredevops": "^0.1.1",
-    "@dsh-git/bitbucket": "^0.1.1",
-    "@dsh-git/core": "^0.1.1",
-    "@dsh-git/gitea": "^0.1.1",
-    "@dsh-git/github": "^0.1.1",
-    "@dsh-git/gitlab": "^0.1.1",
-    "@dsh-git/local": "^0.1.1",
-    "@dsh-git/memory": "^0.1.1",
-    "@dsh-git/platform": "^0.1.1",
-    "@dsh-git/tool-git": "^0.1.1",
-    "@dsh-git/tool-git-memory": "^0.1.1"
+    "@dsh-git/azuredevops": "^0.1.2",
+    "@dsh-git/bitbucket": "^0.1.2",
+    "@dsh-git/core": "^0.1.2",
+    "@dsh-git/gitea": "^0.1.2",
+    "@dsh-git/github": "^0.1.2",
+    "@dsh-git/gitlab": "^0.1.2",
+    "@dsh-git/local": "^0.1.2",
+    "@dsh-git/memory": "^0.1.2",
+    "@dsh-git/platform": "^0.1.2",
+    "@dsh-git/tool-git": "^0.1.2",
+    "@dsh-git/tool-git-memory": "^0.1.2"
   },
   "license": "MIT",
   "publishConfig": {

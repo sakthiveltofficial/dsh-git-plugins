@@ -1,6 +1,6 @@
 {
   "name": "@dsh-git/tool-git-memory",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Consumer: registers the git_memory tool (record / recall / forget) so the model can persist user-stated preferences, project conventions, and error resolutions, and consult them before git operations.",
   "type": "module",
   "main": "lib/index.js",
@@ -21,7 +21,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@dsh-git/memory": "^0.1.1"
+    "@dsh-git/memory": "^0.1.2"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "4.0.1",
@@ -43,5 +43,13 @@
     "dsh-plugin",
     "memory",
     "agent-tools"
-  ]
+  ],
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-tools": {
+      "optional": true
+    }
+  }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@dsh-git/azuredevops",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Azure DevOps adapter for gitPlatform: Git REST + Build + Work Item APIs over Node fetch, normalized into the gitPlatform vocabulary. Issues map to Work Items; releases and security alerts are unsupported.",
   "type": "module",
   "main": "lib/index.js",
@@ -21,7 +21,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@dsh-git/core": "^0.1.1"
+    "@dsh-git/core": "^0.1.2"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "4.0.1",
@@ -45,5 +45,13 @@
     "azure-devops",
     "azure",
     "pipelines"
-  ]
+  ],
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-credentials": {
+      "optional": true
+    }
+  }
 }

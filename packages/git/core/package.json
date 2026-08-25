@@ -1,6 +1,6 @@
 {
   "name": "@dsh-git/core",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Service Definitions and vocabulary types for the Git capability seam: the abstract gitLocal (plumbing/porcelain) and gitPlatform (hosted-platform registry) services, plus the shared GitError taxonomy.",
   "type": "module",
   "main": "lib/index.js",
@@ -44,5 +44,16 @@
     "service",
     "types",
     "abstraction"
-  ]
+  ],
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-llm": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-sandbox": {
+      "optional": true
+    }
+  }
 }

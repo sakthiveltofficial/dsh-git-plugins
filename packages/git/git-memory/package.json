@@ -1,6 +1,6 @@
 {
   "name": "@dsh-git/memory",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Self-evolving git memory: a durable, cross-session store of environment facts, per-project conventions, error signatures + resolutions, and user-stated preferences. Auto-captures git tool failures, scrubs secrets, and injects a bounded digest into the system prompt.",
   "type": "module",
   "main": "lib/index.js",
@@ -50,5 +50,22 @@
     "memory",
     "context",
     "self-evolving"
-  ]
+  ],
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-storage-domain": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-system-prompt": {
+      "optional": true
+    },
+    "@deepseek-ai/schemastery": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-tools": {
+      "optional": true
+    }
+  }
 }
