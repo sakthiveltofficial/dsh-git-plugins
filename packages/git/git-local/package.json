@@ -1,6 +1,6 @@
 {
   "name": "@dsh-git/local",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Local git provider: implements the gitLocal Service Definition by shelling to the git binary through ctx.shell (submodules, LFS, and hooks handled by git itself).",
   "type": "module",
   "main": "lib/index.js",
@@ -21,7 +21,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@dsh-git/core": "workspace:*"
+    "@dsh-git/core": "^0.1.1"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "4.0.1",

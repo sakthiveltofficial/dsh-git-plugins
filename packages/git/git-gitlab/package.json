@@ -1,6 +1,6 @@
 {
   "name": "@dsh-git/gitlab",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "GitLab adapter for gitPlatform: REST v4 endpoints over Node fetch, normalized into the gitPlatform vocabulary (merge requests, issues, releases, pipelines, vulnerability findings).",
   "type": "module",
   "main": "lib/index.js",
@@ -21,7 +21,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@dsh-git/core": "workspace:*"
+    "@dsh-git/core": "^0.1.1"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "4.0.1",

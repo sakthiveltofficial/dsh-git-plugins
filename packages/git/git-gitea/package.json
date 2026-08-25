@@ -1,6 +1,6 @@
 {
   "name": "@dsh-git/gitea",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Gitea adapter for gitPlatform: OpenAPI/Swagger REST (GitHub-shaped responses) over Node fetch, also the template for generic self-hosted git hosts.",
   "type": "module",
   "main": "lib/index.js",
@@ -21,7 +21,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@dsh-git/core": "workspace:*"
+    "@dsh-git/core": "^0.1.1"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "4.0.1",

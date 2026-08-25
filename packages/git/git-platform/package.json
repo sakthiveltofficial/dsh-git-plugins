@@ -1,6 +1,6 @@
 {
   "name": "@dsh-git/platform",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "gitPlatform provider: the registry/dispatcher that holds one adapter per hosted platform, detects the host from a repo's remote URL, and applies rate-limit backoff and a read cache.",
   "type": "module",
   "main": "lib/index.js",
@@ -21,7 +21,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@dsh-git/core": "workspace:*"
+    "@dsh-git/core": "^0.1.1"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "4.0.1",

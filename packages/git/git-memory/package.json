@@ -1,6 +1,6 @@
 {
   "name": "@dsh-git/memory",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Self-evolving git memory: a durable, cross-session store of environment facts, per-project conventions, error signatures + resolutions, and user-stated preferences. Auto-captures git tool failures, scrubs secrets, and injects a bounded digest into the system prompt.",
   "type": "module",
   "main": "lib/index.js",

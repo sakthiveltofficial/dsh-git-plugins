@@ -1,6 +1,6 @@
 {
   "name": "@dsh-git/core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Service Definitions and vocabulary types for the Git capability seam: the abstract gitLocal (plumbing/porcelain) and gitPlatform (hosted-platform registry) services, plus the shared GitError taxonomy.",
   "type": "module",
   "main": "lib/index.js",
