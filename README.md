@@ -1,19 +1,19 @@
 # dsh-git · Git & Source-Control Plugin Suite for DeepSeek Harness
 
 [![awesome · DSH plugin](https://awesome-dsh-plugin.com/badge.svg)](https://awesome-dsh-plugin.com)
-[![npm version](https://img.shields.io/npm/v/@dsh-git/bundle)](https://www.npmjs.com/package/@dsh-git/bundle)
+<!-- [![npm version](https://img.shields.io/npm/v/@dsh-git/bundle)](https://www.npmjs.com/package/@dsh-git/bundle) -->
 [![License: MIT](https://img.shields.io/npm/l/@dsh-git/bundle)](https://opensource.org/licenses/MIT)
 
 A complete, production-ready **Git / source-control plugin suite for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (DSH)**. It gives the agent typed, policy-aware access to local git and every major hosted Git platform — GitHub, GitLab, Bitbucket, Azure DevOps, and Gitea — plus a self-evolving memory that learns your environment, conventions, and error fixes over time.
 
-> **Official ecosystem keyword:** this is a `dsh-plugin` — add the `dsh-plugin` GitHub topic to this repository and install it from npm.
+> **Official ecosystem keyword:** this is a `dsh-plugin` — add the `dsh-plugin` GitHub topic to this repository.
 
 ---
 
 ## 🤖 LLM-readable summary
 
-- **What:** an npm-published bundle (`@dsh-git/bundle`) of 11 packages that extends DSH agents with 8 model-facing git tools + durable memory.
-- **Install:** `dsh plugin --profile web add @dsh-git/bundle`, then restart the profile. No preset editing required (host rows are inserted automatically via `dsh.bundle.patch`).
+- **What:** a bundle of 11 packages that extends DSH agents with 8 model-facing git tools + durable memory.
+- **Install:** `dsh plugin --profile web add github:sakthiveltofficial/dsh-git-plugins`, then restart the profile. No preset editing required (host rows are inserted automatically via `dsh.bundle.patch`).
 - **Tools:** `git_repo`, `git_inspect`, `git_pr`, `git_issues`, `git_release`, `git_security`, `git_ci`, `git_memory`.
 - **Platforms:** GitHub, GitLab, Bitbucket (Cloud), Azure DevOps, Gitea (also any self-hosted host).
 - **Runtime requirements:** DeepSeek Harness, Node.js ≥ 20 (global `fetch`), and the `git` CLI on PATH.
@@ -42,36 +42,34 @@ A complete, production-ready **Git / source-control plugin suite for [DeepSeek H
 git --version        # the git CLI must be on PATH
 ```
 
-### Option A — one command (recommended)
+<!--
+### Option A — npm (not recommended — use the GitHub path below instead)
 
 ```sh
 dsh plugin --profile web add @dsh-git/bundle
 ```
 
 Restart the profile (or the DSH process). The bundle's `cordis.patch.yml` inserts the whole capability — local provider, platform registry, all five adapters, memory, and the tools — into the profile composition automatically.
+-->
 
-### Option B — from this GitHub repository
+### Install — from this GitHub repository
 
 ```sh
 # the repo ROOT is itself a bundle (dsh.bundle manifest + cordis.patch.yml)
-# and pulls every @dsh-git/* package from npm — no build approval needed
+# and pulls every @dsh-git/* package from npm — no build step needed
 dsh plugin --profile web add github:sakthiveltofficial/dsh-git-plugins
 ```
 
-> **Use exactly ONE install path.** Both Option A and Option B insert the same
-> git rows — installing both would double-register them. If you already have
-> `@dsh-git/bundle` installed and want the GitHub path instead (or vice versa),
-> remove the other first:
-> ```sh
-> dsh plugin --profile web remove @dsh-git/bundle
-> ```
+Restart the profile (or the DSH process). The bundle's `cordis.patch.yml` inserts the whole capability — local provider, platform registry, all five adapters, memory, and the tools — into the profile composition automatically.
 
-### Option C — opt-in per agent preset
+<!--
+### Option B — opt-in per agent preset
 
 If you want the tools only for agents on a specific preset, copy the group from
 [`composition/git.cordis.yml`](composition/git.cordis.yml) into that preset's
 `agent.cordis.yml` instead (services live in an `isolate` realm per session;
 memory still persists cross-session through the shared `git_memory` storage domain).
+-->
 
 ### Verify
 
