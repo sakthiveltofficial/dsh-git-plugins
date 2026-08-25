@@ -205,4 +205,8 @@ export function apply(ctx: Context, config: Config = {}): () => void {
   return ctx.gitPlatform.registerProvider(provider)
 }
 
+// Attach inject directly on the function — Cordis reads plugin.inject (the
+// function's own property) not the module-level `export const inject`.
+apply.inject = inject
+
 export default apply
