@@ -1,10 +1,12 @@
-# dsh-git · Git & Source-Control Plugin Suite for DeepSeek Harness
+# dsh-git · Git & Source-Control Plugin Suite for DeepSeek Harness — with Self-Evolving Memory
+
+![DSH-GIT — The Self-Evolving Git Capability for DeepSeek Harness](docs/assets/dsh-git-banner.png)
 
 [![awesome · DSH plugin](https://awesome-dsh-plugin.com/badge.svg)](https://awesome-dsh-plugin.com)
 <!-- [![npm version](https://img.shields.io/npm/v/@dsh-git/bundle)](https://www.npmjs.com/package/@dsh-git/bundle) -->
 [![License: MIT](https://img.shields.io/npm/l/@dsh-git/bundle)](https://opensource.org/licenses/MIT)
 
-A complete, production-ready **Git / source-control plugin suite for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (DSH)**. It gives the agent typed, policy-aware access to local git and every major hosted Git platform — GitHub, GitLab, Bitbucket, Azure DevOps, and Gitea — plus a self-evolving memory that learns your environment, conventions, and error fixes over time.
+A complete, production-ready **Git / source-control plugin suite for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (DSH)**. It gives the agent typed, policy-aware access to local git and every major hosted Git platform — GitHub, GitLab, Bitbucket, Azure DevOps, and Gitea — and its **self-evolving memory** is the defining feature: the agent genuinely gets smarter about your repos, conventions, and past mistakes with every session.
 
 > **Official ecosystem keyword:** this is a `dsh-plugin` — add the `dsh-plugin` GitHub topic to this repository.
 
@@ -27,7 +29,7 @@ A complete, production-ready **Git / source-control plugin suite for [DeepSeek H
 
 - **Local repository operations** — clone, branch, checkout, commit, push, pull, stash, tag, merge, rebase, diff, blame, log, code search, file search — through the real `git` binary, with typed arguments and readable results.
 - **Hosted platform operations** — pull requests (create / list / merge / comment), issues, releases, CI/CD pipeline status, and security alerts across five platforms behind **one provider-agnostic interface**.
-- **Self-evolving memory** — remembers environment facts, per-project conventions (branch naming, commit style, merge strategy), error signatures + their fixes, and user-stated preferences across sessions. Known errors are pre-empted; conventions are followed without re-asking; secrets are scrubbed; an explicit instruction always wins.
+- ⭐ **Self-evolving memory _(the USP)_** — the agent builds a persistent, scrubbed knowledge base across sessions: environment facts, per-project conventions (branch naming, commit style, merge strategy), error signatures paired with their fixes, and explicit user preferences. Known errors are **pre-empted before they happen**; conventions are **followed automatically** without re-asking; secrets are scrubbed; and an explicit instruction always overrides memory. The agent gets measurably better at your codebase over time.
 - **Policy-aware hardening** — approval gates on destructive actions, sandbox confinement with escalation, rate-limit backoff, and read caching.
 
 ---
