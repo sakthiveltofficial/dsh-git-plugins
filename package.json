@@ -5,7 +5,6 @@
   "type": "module",
   "description": "Git / source-control plugins for DeepSeek Harness: a local-git provider, a hosted-platform registry (GitHub/GitLab/Bitbucket/Azure DevOps/Gitea), and grouped model-facing tools.",
   "scripts": {
-    "prepare": "pnpm -r run build",
     "build": "pnpm -r run build",
     "typecheck": "pnpm -r run typecheck",
     "clean": "pnpm -r exec rm -rf lib",
