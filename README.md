@@ -3,8 +3,8 @@
 ![DSH-GIT — The Self-Evolving Git Capability for DeepSeek Harness](docs/assets/dsh-git-banner.png)
 
 [![awesome · DSH plugin](https://awesome-dsh-plugin.com/badge.svg)](https://awesome-dsh-plugin.com)
-<!-- [![npm version](https://img.shields.io/npm/v/@dsh-git/bundle)](https://www.npmjs.com/package/@dsh-git/bundle) -->
 [![License: MIT](https://img.shields.io/npm/l/@dsh-git/bundle)](https://opensource.org/licenses/MIT)
+<!-- [![npm version](https://img.shields.io/npm/v/@dsh-git/bundle)](https://www.npmjs.com/package/@dsh-git/bundle) -->
 
 A complete, production-ready **Git / source-control plugin suite for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (DSH)**. It gives the agent typed, policy-aware access to local git and every major hosted Git platform — GitHub, GitLab, Bitbucket, Azure DevOps, and Gitea — and its **self-evolving memory** is the defining feature: the agent genuinely gets smarter about your repos, conventions, and past mistakes with every session.
 
